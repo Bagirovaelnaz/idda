@@ -1,9 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+import { IoIosArrowDown } from "react-icons/io";
 
 const Home = () => {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const faqs = [
+    {
+      question: "mygov nədir?",
+      answer:
+        "mygov platforması, vətəndaşların və dövlət xidmətlərinin qarşılıqlı əlaqəsini sadələşdirmək üçün nəzərdə tutulmuş əhatəli rəqəmsal həllərdən biridir. mygov vasitəsilə istifadəçilər geniş çeşidli dövlət xidmətlərinə, həyat hadisələrinin idarə edilməsinə və əsas məlumat və sənədlərə asanlıqla daxil ola bilərlər. Bu platforma həm fərdi vətəndaşların, həm də biznes subyektlərinin ehtiyaclarını qarşılamaq üçün hazırlanmışdır, istifadəçi üçün təhlükəsiz, rahat və səmərəli təcrübə təqdim edir. mygov, istifadəçilərin hökumətlə əlaqəli fəaliyyətlərini rəqəmsal mühitdə asanlaşdırmaqla əlçatanlığı, şəffaflığı və rahatlığı artırmağı hədəfləyir.Bu layihə vətəndaşlara rəqəmsal xidmətlər təqdim edən platformadır.",
+    },
+    {
+      question: "İRİA-nın innovasiya sahəsindəki fəaliyyəti nədən ibarətdir?",
+      answer:
+        "İRİA ölkə ərazisində dayanıqlı innovasiya ekosisteminin formalaşdırılması üçün 5 əsas istiqamət üzrə ekosistemin inkişafını dəstəkləyir. Bu istiqamətlər maliyyə əlçatanlığının təmini, innovasiya mədəniyyətinin formalaşdırılması, insan kapitalının inkişafı, bazar əlçatanlığının təmini və lazımi infrastrukturun formalaşdırılmasıdır. ",
+    },
+    {
+      question: "Azərbaycan İnnovasiya Mərkəzi nədir?",
+      answer:
+        "AİM (Azərbaycan İnnovasiya Mərkəzi) texnologiya sahibkarlarını, tədqiqatçıları, investorları, innovatorları və texnologiya ekosisteminin əsas iştirakçılarını bir araya gətirən dinamik bir məkandır. Bu məkanda fikirlər inqilabi məhsul və xidmətlərə çevrilir. AİM innovasiya mərkəzi olaraq, əməkdaşlığı təşviq edir, yeni ideyalar üçün inkişaf yeri rolunu oynayır və innovatorlara öz layihələrini inkişaf etdirmək, maliyyələşdirmək və genişləndirmək üçün yaradıcı həllər tapmalarında kömək edir. Startuplar, korporasiyalar, universitetlər, investorlar, tədqiqat laboratoriyaları və dövlət qurumları üçün enerji verici bir mühit yaratmaq məqsədilə AİM inkişafa və innovasiyaya töhfə verən əməkdaşlıq mühitini formalaşdırır.",
+    },
+    {
+      question: "digital.login sistemində necə qeydiyyatdan keçə bilərəm?",
+      answer:
+        "digital.login sistemində qeydiyyat üçün “İdentifikasiya nömrəsi ilə” bölməsinə daxil olaraq, “Qeydiyyat” düyməsini sıxıb, videoqeydiyyata başlaya bilərsiniz. Videoqeydiyyat zamanı mobil nömrənin sizin adınıza olması ilə bağlı hər hansı tələb mövcud deyil, müraciət 10 iş günü ərzində sistem operatoru tərəfindən yoxlanıldıqdan və təsdiq edildikdən sonra hesab aktivləşir. Müraciətinizin dərhal cavablandırılması üçün isə “SİMA Rəqəmsal İmza” ilə qeydiyyatdan keçə bilərsiniz.",
+    },
+    {
+      question: "Azərbaycan Kibertəhlükəsizlik Mərkəzi nədir?",
+      answer:
+        "Azərbaycan Kibertəhlükəsizlik Mərkəzi Azərbaycan Respublikası Rəqəmsal İnkişaf və Nəqliyyat Nazirliyi ilə İsrailin “Technion” İnstitutunun birgə əməkdaşlığı ilə təsis edilib. Mərkəz ölkəmizdə kibertəhlükəsizlik sahəsində bilik və bacarıqları inkişaf etdirmək, beynəlxalq səviyyədə rəqabətədavamlı kadrlar yetişdirmək və dövlət, özəl sektor, eləcə də fərdi mütəxəssislər üçün qabaqcıl kiber təlimlər təqdim etmək məqsədilə yaradılmış innovativ mərkəzdir.",
+    },
+  ];
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
   const slides = [
     {
       img: "https://api.idda.az/resized/resize3810/center/pages/625/site.png",
@@ -96,14 +136,143 @@ const Home = () => {
         <div className="activity-header">
           <h2>Fəaliyyətimiz</h2>
           <div style={{ display: "flex", gap: "10px" }}>
-            <button>
+            <button ref={prevRef}>
               <FaArrowLeft />
             </button>
-            <button>
+            <button ref={nextRef}>
               <FaArrowRight />
             </button>
           </div>
-          <div className="boxes"></div>
+        </div>
+        <div className="swipers">
+          <div className="swiper-section">
+            <Swiper
+              spaceBetween={20}
+              slidesPerView={3}
+              pagination={{ clickable: true }}
+              navigation={{
+                prevEl: prevRef.current,
+                nextEl: nextRef.current,
+              }}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
+              modules={[Navigation, Pagination, Autoplay]}
+            >
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/storage/pages/1/mygov-main-page.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>mygov</p>
+                    <span>
+                      “mygov” vətəndaşlarla hökumət arasında effektiv əlaqə
+                      yaradaraq dövlət xidmətlərinə və sənədlərə tam rəqəmsal
+                      çıxış imkanı təqdim edən rəqəmsal hökumət platformasıdır.
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/storage/pages/1/idda-awards-main-page.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>IDDA Awards</p>
+                    <span>
+                      "IDDA Awards" İnnovasiya və Rəqəmsal İnkişaf Agentliyinin
+                      innovasiyalar sahəsində həyata keçirdiyi mükafatandırma
+                      mərasimidir.
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/resized/resize4762/center/pages/1/mygov-id-main-page.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>mygov ID</p>
+                    <span>
+                      mygov ID dövlət və özəl qurumlar tərəfindən təqdim olunan
+                      elektron xidmətlərə vahid giriş imkanı verən rəqəmsal
+                      identifikasiya sistemidir.
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/storage/pages/1/akm-main-page.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>Azərbaycan Kibertəhlükəsizlik Mərkəzi</p>
+                    <span>
+                      AKM kibertəhlükəsizlik sahəsində bilik və bacarıqları
+                      artırmaq, ölkəni bu sahədə inkişaf etdirmək və beynəlxalq
+                      səviyyədə rəqabətədavamlı kadrlar yetişdirmək məqsədi
+                      daşıyır.
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/storage/pages/1/texnopark-main-page-1.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>Texnopark</p>
+                    <span>
+                      Texnopark rezidentləri üçün vergidə 10 illik güzəşt
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="swiper-box">
+                  <div>
+                    <img
+                      src="https://api.idda.az/resized/resize4762/center/pages/1/853x560-1.png"
+                      alt=""
+                    />
+                  </div>
+                  <div className="txt-swiper">
+                    <p>Azərbaycan İnnovasiya Mərkəzi</p>
+                    <span>
+                      aim texnologiya ekosisteminin əsas iştirakçılarını bir
+                      araya gətirən, əməkdaşlığı təşviq edən və innovativ
+                      ideyaların inkişafına şərait yaradan dinamik mərkəzdir.
+                    </span>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </div>
         <div className="circle-section">
           <h3>Rəqəmsal hökumət layihələrinin inkişafına dair göstəricilər</h3>
@@ -338,6 +507,85 @@ const Home = () => {
               />
             </div>
           </div>
+        </div>
+        <div className="faq-header">
+          <h2>Tez-tez verilən suallar</h2>
+          <div className="faq-section">
+            {faqs.map((faq, index) => (
+              <div
+                className={`faq-item ${openIndex === index ? "open" : ""}`}
+                key={index}
+              >
+                <div
+                  className="faq-question"
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <span>{faq.question}</span>
+                  <IoIosArrowDown
+                    className={`arrow ${openIndex === index ? "rotate" : ""}`}
+                  />
+                </div>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="img-swiper">
+          <div className="img-header">
+            <h2 style={{ marginBottom: "25px", fontWeight: "400" }}>
+              Bizimlə birgə addımlayanlar!
+            </h2>
+          </div>
+          <Swiper
+            slidesPerView={5}
+            spaceBetween={0}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+          >
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/images-1.jpg"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/26d67be333cbc29d2e010a6d7d175f01.jpg"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/logo-1.png"
+                alt=""
+              />
+            </SwiperSlide>
+          
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/elm-tehsil-naziriyi-logo.png"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/images.jpg"
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="https://api.idda.az/resized/resize342/center/pages/1/images-2.png"
+                alt=""
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </main>
