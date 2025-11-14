@@ -423,9 +423,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div class="news-section">
-          <div class="news-card">
-            <p class="date">2025-11-06</p>
+        <div className="news-section container">
+          <div className="news-card a">
+            <p className="date">2025-11-06</p>
             <h3>
               Azərbaycan Kibertəhlükəsizlik Mərkəzi və SABAH qrupları Zəfər
               Gününə həsr olunmuş hakaton təşkil edib
@@ -436,8 +436,8 @@ const Home = () => {
             />
           </div>
 
-          <div class="news-card">
-            <p class="date">2025-11-06</p>
+          <div className="news-card b">
+            <p className="date">2025-11-06</p>
             <h3>
               Bakıda ilk dəfə “StrategEast: Dövlət və İT üzrə Avrasiya Forumu”
               keçirilib
@@ -448,13 +448,8 @@ const Home = () => {
             />
           </div>
 
-          <div class="news-cards">
-            <p class="date">2025-10-31</p>
-            <h3>Azərbaycanda “Bebras” Həftəsi keçiriləcək</h3>
-          </div>
-
-          <div class="news-card">
-            <p class="date">2025-11-03</p>
+          <div className="news-card c">
+            <p className="date">2025-11-03</p>
             <h3>
               Azərbaycan Kibertəhlükəsizlik Mərkəzinin yeni təlim proqramına
               qeydiyyat başladı
@@ -465,8 +460,8 @@ const Home = () => {
             />
           </div>
 
-          <div class="news-card">
-            <p class="date">2025-10-31</p>
+          <div className="news-card d">
+            <p className="date">2025-10-31</p>
             <h3>
               Asiya İnkişaf Bankı RİNN və AZCON tabeli qurumlarının satınalma
               əməkdaşları üçün tədbir keçirib
@@ -476,19 +471,22 @@ const Home = () => {
               alt="News 4"
             />
           </div>
-
-          <div class="news-cards">
-            <p class="date">2025-10-28</p>
+          <div className="news-cards q">
+            <p className="date">2025-10-31</p>
+            <h3>Azərbaycanda “Bebras” Həftəsi keçiriləcək</h3>
+          </div>
+          <div className="news-cards w">
+            <p className="date">2025-10-28</p>
             <h3>“digital.login” fəaliyyətinə “mygov ID”-kimi davam edəcək</h3>
-            <div class="news-cards">
-              <p class="date">2025-10-27</p>
+          </div>
+            <div className="news-cards e">
+              <p className="date">2025-10-27</p>
               <h3>
                 Ölkədə informasiyanın rəqəmsallaşma səviyyəsinin diaqnostikası
                 üçün yeni qaydalar təsdiq edilib
               </h3>
             </div>
-          </div>
-          {/* <button class="all-news-btn">Bütün xəbərlər ↗</button> */}
+          <button className="all-news-btn r">Bütün xəbərlər ↗</button>
         </div>
         <div className="container-img">
           <div className="inner-container">
