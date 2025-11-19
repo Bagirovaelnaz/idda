@@ -14,7 +14,7 @@ const Header = () => {
           style={{
             width: "1px",
             height: "36px",
-            padding:"0px",
+            padding: "0px",
             backgroundColor: "black",
           }}
         ></div>
