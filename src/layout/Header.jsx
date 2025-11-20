@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoIosSearch } from "react-icons/io";
+import { IoIosMenu, IoIosSearch } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header>
+    <header className="header">
       <div className="icons">
         <img
           src="https://api.idda.az/resized/resize392/center/pages/1/iria-ufuqi-mavi.png"
@@ -14,7 +18,6 @@ const Header = () => {
           style={{
             width: "1px",
             height: "36px",
-            padding: "0px",
             backgroundColor: "black",
           }}
         ></div>
@@ -23,16 +26,22 @@ const Header = () => {
           alt="logo-2"
         />
       </div>
-      <div className="links">
+
+      <div className={`links ${open ? "open" : ""}`}>
         <Link to="/haqqimizda">Haqqımızda</Link>
         <Link to="/fealiyyet">Fəaliyyətimiz</Link>
         <Link to="/xeberler">Xəbərlər</Link>
         <Link to="/karyera">Karyera</Link>
         <Link to="/elaqe">Əlaqə</Link>
       </div>
-      <div>
+
+      <div className="right">
         <button type="search">
           <IoIosSearch />
+        </button>
+        <button className="burger" onClick={() => setOpen(!open)}>
+          {open ? <IoMdClose  size={24} /> : <IoIosMenu size={24} />
+        }
         </button>
       </div>
     </header>
