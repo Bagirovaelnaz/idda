@@ -444,9 +444,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <h2 style={{ marginTop: "50px", textAlign: "left", marginLeft: "30px" }}>
-        Xəbərlər
-      </h2>
+      <div className="news-header">
+        <h2>Xəbərlər</h2>
+      </div>
       <div className="news-section container">
         <div className="news-card a">
           <p className="date">2025-11-06</p>
@@ -459,7 +459,6 @@ const Home = () => {
             alt="News 1"
           />
         </div>
-
         <div className="news-card b">
           <p className="date">2025-11-06</p>
           <h3>
@@ -471,7 +470,39 @@ const Home = () => {
             alt="News 2"
           />
         </div>
-
+        <div className="news-card-n">
+          <p className="date">2025-11-19</p>
+          <h3>
+            Dövlət qurumları arasında məlumat mübadiləsinin həcmi 2 milyardı
+            keçib
+          </h3>
+          <img
+            src="https://api.idda.az/resized/resize400/center/pages/631/img-7245.PNG"
+            alt="News 2"
+          />
+        </div>
+        <div className="news-card-n">
+          <p className="date">2025-11-18</p>
+          <h3>
+            “mygov” platformasında vətəndaşlara məlumat sorğuları barədə
+            bildirişlər göndərilməyə başlanılıb
+          </h3>
+          <img
+            src="https://api.idda.az/resized/resize400/center/pages/629/img-7240.PNG"
+            alt="News 2"
+          />
+        </div>{" "}
+        <div className="news-card-n">
+          <p className="date">2025-11-17</p>
+          <h3>
+            “Kommunal xidmətlərlə bağlı vahid informasiya sisteminin yaradılması
+            üzrə”
+          </h3>
+          <img
+            src="https://api.idda.az/resized/resize400/center/pages/630/digitalazerbaijan.png"
+            alt="News 2"
+          />
+        </div>
         <div className="news-card c">
           <p className="date">2025-11-03</p>
           <h3>
@@ -483,7 +514,6 @@ const Home = () => {
             alt="News 3"
           />
         </div>
-
         <div className="news-card d">
           <p className="date">2025-10-31</p>
           <h3>
@@ -512,6 +542,69 @@ const Home = () => {
         </div>
         <button className="all-news-btn r">Bütün xəbərlər ↗</button>
       </div>
+      {/* ^ RESPONSIV CONTAINER */}
+      <div className="responsive">
+        <div className="responsive-container">
+          <div className="resp-card">
+            <p className="date">2025-11-06</p>
+            <h3>
+              Bakıda ilk dəfə “StrategEast: Dövlət və İT üzrə Avrasiya Forumu”
+              keçirilib
+            </h3>
+            <img
+              src="https://api.idda.az/resized/resize800/center/pages/627/0h7a8853.jpg"
+              alt="News 2"
+            />
+          </div>
+          <div className="resp-card">
+            <p className="date">2025-11-19</p>
+            <h3>
+              Dövlət qurumları arasında məlumat mübadiləsinin həcmi 2 milyardı
+              keçib
+            </h3>
+            <img
+              src="https://api.idda.az/resized/resize400/center/pages/631/img-7245.PNG"
+              alt="News 2"
+            />
+          </div>
+          <div className="resp-card">
+            <p className="date">2025-11-18</p>
+            <h3>
+              “mygov” platformasında vətəndaşlara məlumat sorğuları barədə
+              bildirişlər göndərilməyə başlanılıb
+            </h3>
+            <img
+              src="https://api.idda.az/resized/resize400/center/pages/629/img-7240.PNG"
+              alt="News 2"
+            />
+          </div>{" "}
+          <div className="resp-card">
+            <p className="date">2025-11-17</p>
+            <h3>
+              “Kommunal xidmətlərlə bağlı vahid informasiya sisteminin
+              yaradılması üzrə”
+            </h3>
+            <img
+              src="https://api.idda.az/resized/resize400/center/pages/630/digitalazerbaijan.png"
+              alt="News 2"
+            />
+          </div>
+          <div className="resp-card">
+            <p className="date">2025-11-03</p>
+            <h3>
+              Azərbaycan Kibertəhlükəsizlik Mərkəzinin yeni təlim proqramına
+              qeydiyyat başladı
+            </h3>
+            <img
+              src="https://api.idda.az/resized/resize800/center/pages/624/akm-7ci-dalga-16x9-1.png"
+              alt="News 3"
+            />
+          </div>
+        </div>
+          <button className="resp-btn"> Bütün xəbərlər ↗</button>
+
+      </div>
+
       <div className="container-img">
         <div className="inner-container">
           <div className="txt">
@@ -522,7 +615,7 @@ const Home = () => {
             </p>
             <Link to="https://idda.az/az/karyera/vakansiyalar"> Ətraflı</Link>
           </div>
-          <div>
+          <div className="second">
             <img
               src="https://api.idda.az/resized/resize822/center/pages/1/be-architect-img-01-0.png"
               alt=""
@@ -557,9 +650,7 @@ const Home = () => {
 
       <div className="img-swiper">
         <div className="img-header">
-          <h2 style={{ marginBottom: "25px", fontWeight: "400" }}>
-            Bizimlə birgə addımlayanlar!
-          </h2>
+          <h2>Bizimlə birgə addımlayanlar!</h2>
         </div>
         <Swiper
           slidesPerView={5}
@@ -568,7 +659,25 @@ const Home = () => {
             delay: 3000,
             disableOnInteraction: false,
           }}
+          
           modules={[Autoplay]}
+
+        breakpoints={{
+                500: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                   700: {
+                  // 1024px və yuxarı
+                  slidesPerView: 4,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  // 1024px və yuxarı
+                  slidesPerView: 5,
+                  spaceBetween: 20,
+                },
+              }}
         >
           <SwiperSlide>
             <img
@@ -588,7 +697,6 @@ const Home = () => {
               alt=""
             />
           </SwiperSlide>
-
           <SwiperSlide>
             <img
               src="https://api.idda.az/resized/resize342/center/pages/1/elm-tehsil-naziriyi-logo.png"
@@ -604,6 +712,18 @@ const Home = () => {
           <SwiperSlide>
             <img
               src="https://api.idda.az/resized/resize342/center/pages/1/images-2.png"
+              alt=""
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src="https://api.idda.az/resized/resize171/center/pages/1/logo-of-the-ministry-of-justice-of-azerbaijan-1.png"
+              alt=""
+            />
+          </SwiperSlide>{" "}
+          <SwiperSlide>
+            <img
+              src="https://api.idda.az/resized/resize171/center/pages/1/sehiyye.png"
               alt=""
             />
           </SwiperSlide>
