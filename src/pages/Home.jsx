@@ -601,8 +601,7 @@ const Home = () => {
             />
           </div>
         </div>
-          <button className="resp-btn"> Bütün xəbərlər ↗</button>
-
+        <button className="resp-btn"> Bütün xəbərlər ↗</button>
       </div>
 
       <div className="container-img">
@@ -659,25 +658,23 @@ const Home = () => {
             delay: 3000,
             disableOnInteraction: false,
           }}
-          
           modules={[Autoplay]}
-
-        breakpoints={{
-                500: {
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-                   700: {
-                  // 1024px və yuxarı
-                  slidesPerView: 4,
-                  spaceBetween: 20,
-                },
-                1024: {
-                  // 1024px və yuxarı
-                  slidesPerView: 5,
-                  spaceBetween: 20,
-                },
-              }}
+          breakpoints={{
+            500: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            700: {
+              // 1024px və yuxarı
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+            1024: {
+              // 1024px və yuxarı
+              slidesPerView: 5,
+              spaceBetween: 20,
+            },
+          }}
         >
           <SwiperSlide>
             <img

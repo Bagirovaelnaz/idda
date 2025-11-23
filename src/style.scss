@@ -307,7 +307,7 @@ main {
     h2 {
       letter-spacing: 0.2px;
       font-size: 40px;
-      font-weight: 500;
+      font-weight: 400;
       text-align: center;
     }
     button {
@@ -326,7 +326,9 @@ main {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
-      padding: 40px 100px;
+      padding: 40px;
+      margin-left: 200px;
+      margin-right: 200px;
     }
   }
 
@@ -617,7 +619,11 @@ main {
         padding: 40px;
         margin-left: 40px;
         margin-top: 10px;
-
+        a {
+          text-decoration: none;
+          color: #141414;
+          font-weight: 600;
+        }
         h2 {
           font-size: 34px;
           text-align: left;
@@ -707,8 +713,9 @@ main {
 
         &.open {
           .faq-answer {
-            max-height: 200px;
+            max-height: 300px;
             padding: 10px 20px;
+            overflow: visible;  
             background-color: rgb(228 233 245);
           }
         }
@@ -931,9 +938,9 @@ main {
 
     .responsive {
       display: inline;
-      
-      button{
-        background-color: rgb(89 156 247 );
+
+      button {
+        background-color: rgb(89 156 247);
         padding: 20px 50px;
         width: 90%;
         margin-left: 33px;
@@ -952,14 +959,16 @@ main {
         scrollbar-width: none;
 
         .resp-card {
+          margin-top: 10px;
           display: inline;
-          background: rgb(240 243 250);
+          background: rgba(240, 243, 250/1);
           border-radius: 14px;
-          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 1px 5px rgba(0, 0, 0, 0.149);
           display: flex;
           flex-direction: column;
           cursor: pointer;
-          height: auto;
+          height: 300px;
+    
           .date {
             font-size: 13px;
             color: #64748b;
@@ -980,10 +989,13 @@ main {
           }
 
           img {
-            height: 200px;
             transition: filter 0.3s ease;
             overflow: hidden;
+            height: 200px;
+            display: block;
             object-fit: cover;
+          border-radius: 0px 0px 14px 14px;
+
           }
         }
       }
@@ -1001,6 +1013,8 @@ main {
     .circle-section {
       h3 {
         font-size: 22px;
+        text-align: left;
+        margin-left: 20px;
       }
     }
   }
@@ -1050,8 +1064,12 @@ main {
     .box {
       border-radius: 30px;
       padding: 15px;
+      margin: 30px 20px 0px 20px;
+
       .box-text {
-        font-size: 14px;
+        font-size: 18px;
+        width: 100%;
+        font-weight: 600;
       }
       .box-btns button {
         width: 100%;
@@ -1060,68 +1078,17 @@ main {
     }
 
     .activity-header {
-      display: flex;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      align-items: center;
+      button {
+        margin-right: 8px;
+      }
     }
 
-    // .news-section {
-    //   display: flex;
-    //   overflow-x: auto;
-    //   height: 500px;
-    //   flex-direction: row;
-    //   scrollbar-width: none;
-
-    //   img {
-    //     height: 100%;
-    //     object-fit: cover;
-    //     width: auto;
-    //     display: block;
-    //   }
-    // .news-card {
-    //   height: 100%;
-    // }
-    // .news-cards {
-    //   display: none;
-    // }
-    // .news-card-n {
-    //   display: inline;
-    //   background: rgb(240 243 250);
-    //   border-radius: 14px;
-    //   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
-    //   display: flex;
-    //   flex-direction: column;
-    //   cursor: pointer;
-    //   height: 100%;
-
-    //   .date {
-    //     font-size: 13px;
-    //     color: #64748b;
-    //     margin-bottom: 6px;
-    //     padding-top: 20px;
-    //     margin-left: 20px;
-    //   }
-
-    //   h3 {
-    //     font-size: 15px;
-    //     font-weight: 600;
-    //     line-height: 1.4;
-    //     color: #0f172a;
-    //     margin-bottom: 10px;
-    //     padding-top: 20px;
-    //     margin-left: 20px;
-    //     margin-right: 20px;
-    //   }
-
-    //   img {
-    //     margin-top: 10px;
-    //     height: 170px;
-    //     transition: filter 0.3s ease;
-    //     overflow: hidden;
-    //   }
-    //   }
-    // }
     .img-swiper {
-      .swiper-slide{
-        img{
+      .swiper-slide {
+        img {
           margin-left: 40px;
           height: 100px;
           padding: 10px;
@@ -1149,13 +1116,13 @@ main {
       padding: 40px;
       .inner-container {
         height: auto;
-        text-align: center ;
+        text-align: center;
         border-radius: 40px;
         flex-direction: column;
         .txt {
           width: 100%;
           margin-left: 0px;
-        text-align: center ;
+          text-align: center;
 
         }
         img {
